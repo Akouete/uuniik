@@ -1,0 +1,83 @@
+#cover1 {
+  position: relative;
+  height: 200px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+#profile1 {
+  position: relative;
+  top: 150px;
+  border: solid 3px #fff;
+}
+.listprofileitem li:hover {
+  background: rgb(240,240,240);
+}
+.cont {
+  position: relative;
+  left: 15px;
+  width: 100%;
+  overflow: hidden;
+}
+.postsu {
+  position: relative;
+  border-radius: 5px;
+  cursor: pointer;
+  overflow: hidden;
+}
+.imageu {
+  position: relative;
+  width: 100%;
+  background: rgb(240,240,240);
+  border-radius: 10px;
+}
+.videopostu {
+  position: relative;
+  top: 0;
+  height: 550px;
+  left: 0;
+  width: 100%;
+  border-radius: 10px;
+}
+.textcontu {
+  max-height: 550px;
+  overflow: auto;
+}
+.audiocontu {
+  height: 550px;
+}
+.textcontu2 {
+  position: relative;
+  padding: 20px;
+  background: rgb(240,240,240);
+  border-radius: 10px;
+}
+#comtextarea {
+  margin-top: 10px;
+  border: 0;
+  font-size: 1em;
+  font-weight: bold;
+  resize: none;
+  max-height: 500px;
+  box-sizing: padding-box;
+  width: 100%;
+}
+.posts:hover {
+  background: rgb(200,200,200);
+}
+.annoncecont {
+  height: 500px;
+  background: rgb(10,10,10);
+  border-radius: 20px;
+}
+
+@media all and (max-width: 640px) {
+  .profile_pannel {
+    padding: 0;
+    margin: 0;
+  }
+  .annoncecont {
+    height: 300px;
+    background: rgb(10,10,10);
+    border-radius: 0px;
+  }
+}

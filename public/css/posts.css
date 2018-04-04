@@ -1,0 +1,94 @@
+#btnaccueil {
+  background: rgb(240,240,240);    
+}
+#btnposts {
+  background: rgb(240,240,240);
+}
+#newpost {
+  position: fixed;
+  bottom: 71px;
+  right: 15px;
+}
+#b1 {
+  position: fixed;
+  bottom: 141px;
+  right: 25px;
+}
+#b2 {
+  position: fixed;
+  bottom: 191px;
+  right: 25px;
+}
+#b3 {
+  position: fixed;
+  bottom: 241px;
+  right: 25px;
+}
+#b4 {
+  position: fixed;
+  bottom: 291px;
+  right: 25px;
+}
+.audiopreview {
+  position: relative;
+  height: 50px;
+  left: 0px;
+  width: 80%;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  background: white;
+}
+.btnpost {
+  z-index: 2;
+}
+#contbtnedit {
+  z-index: 2;
+}
+.linkinput {
+  padding-right: 30px;
+}
+.editcontainer {
+  position: relative;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin-top: -1px;
+  margin-bottom: 50px;
+}
+.Videopreview video{
+  position: relative;
+  max-height: 300px;
+  border-radius: 15px;
+  margin-top: 5px;
+}
+.Videopreview{
+  border-radius: 15px;
+}
+.imgpreview {
+  position: relative;
+  max-height: 300px;
+  border-radius: 15px;
+  margin-top: 5px;
+}
+#principaltextarea {
+  margin-top: 6px;
+  border: 0;
+  font-size: 1em;
+  font-weight: bold;
+  resize: none;
+  max-height: 500px;
+  box-sizing: padding-box;
+}
+.title {
+  font-size: 1em;
+  font-weight: bold;
+}
+@media all and (max-width: 640px){
+  .editcontainer {
+    position: absolute;
+    margin-top: 0px;
+    border-radius: 0px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}

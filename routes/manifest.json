@@ -1,0 +1,17 @@
+{
+  "name": "Uuniik",
+  "short_name": "Uuniik",
+  "lang": "fr",
+  "icons": [
+    {
+      "src": "http://127.0.0.1/site/uuniik_project/uuniik/public/img/uuniik512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/site/uuniik_project/uuniik/public/connexion",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "background_color": "#D50000",
+  "theme_color": "#D50000"
+}

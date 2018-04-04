@@ -1,0 +1,43 @@
+.phone_menu {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  display: inline-block;
+  z-index: 5;
+}
+.width25 {
+  position: relative;
+  left: 0;
+  width: 25%;
+  height: 60px;
+  margin: 0px;
+  margin-right: -4px;
+  display: inline-block;
+  background: #fff;
+  color: #424242;
+}
+.width25:hover {
+  background: #fff;
+}
+.menumm {
+  border: solid 8px rgb(240,240,240);
+}
+#btnposts {
+  border-top-left-radius: 5px;
+}
+#btnpers {
+  border-top-right-radius: 5px;
+}
+@media all and (max-width: 640px) {
+  .menumm {
+    border: none;
+    height: 50px;
+    bottom: -10px;
+  }
+  .width25 {
+    height: 50px;
+    bottom: 0;
+  }
+}
