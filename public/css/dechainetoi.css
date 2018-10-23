@@ -1,0 +1,141 @@
+.btncomoption {
+  position: absolute;
+  right: 10px;
+  top: 0px;
+}
+.bottom {
+  position: fixed;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  background: #fff;
+  z-index: 9;
+  box-shadow:  0px -1px 5px rgba(0, 0, 10, 0.1);
+}
+.btncomoption {
+  z-index: 1;
+}
+
+.Videopreview video{
+  position: relative;
+  max-height: 300px;
+  border-radius: 15px;
+  margin-top: 5px;
+}
+.Videopreview{
+  border-radius: 15px;
+}
+body {
+  background: rgb(240,240,240);
+}
+#comtextarea {
+  max-height: 300px;
+}
+.audiopreview {
+  margin-bottom: 50px;
+  position: relative;
+  width: 360px;
+}
+.imgpostpreview {
+  position: relative;
+  max-height: 300px;
+  border-radius: 15px;
+  margin-top: 10px;
+}
+.imgpost {
+  position: relative;
+  max-width: 90%;
+  height: auto;
+  max-height: 500px;
+  border-radius: 15px;
+  margin-bottom: 25px;
+}
+#mplus {
+  position: absolute;
+  right: 8px;
+  margin-top: 10px;
+  display: none;
+}
+.videopostu {
+  position: relative;
+  width: 90%;
+  height: 400px;
+  margin-bottom: 25px;
+}
+#comtextarea {
+  margin-top: 10px;
+  border: solid 5px rgb(200,220,250);
+  font-size: 1em;
+  font-weight: bold;
+  resize: none;
+  max-height: 500px;
+  box-sizing: padding-box;
+  border-radius: 5px;
+}
+#principaltextarea {
+  margin-top: 6px;
+  border: solid 1px rgb(200,200,200);
+  border-radius: 5px;
+  width: 40em;
+  height: 40px;
+  padding: 5px;
+  resize: none;
+  max-height: 200px;
+  box-sizing: padding-box;
+  transition: all 0.5s;
+  margin-bottom: 5px;
+}
+#principaltextarea:focus {
+  border: solid 5px  rgb(200,220,250);
+  height: 200px;
+}
+.m10 {
+  margin-top: 10px;
+}
+.profileic {
+  font-size: 3.5em
+}
+#titleinput {
+  position: relative;
+  width: 100px;
+  left: 0;
+  transition: all 0.5s;
+}
+#titleinput:focus {
+  width: 200px;
+}
+#deleteprevdom {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+@media all and (max-width: 640px){
+  #principaltextarea {
+    width: 90%;
+    bottom: 0;
+  }
+  #principaltextarea:focus {
+    border: solid 2px  rgb(200,220,250);
+    height: 40px;
+  }
+  .m10 {
+    display: none;
+  }
+  #mplus {
+    display: block;
+  }
+  .profileic {
+    font-size: 2.5em
+  }
+  #linkp {
+    position: relative;
+    margin-top: 10px;
+    left: -20px;
+  }
+  .imgpost {
+    max-height: 400px;
+  }
+  #lesbtn {
+    margin-bottom: 10px;
+  }
+}

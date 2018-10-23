@@ -12,9 +12,9 @@ var url = {
   'sw_toolboxjsUrl': 'http://'+window.location.host+'/site/uuniik_project/uuniik/node_modules/sw-toolbox/sw-toolbox.js',
 
   //'ProfileController': 'http://'+window.location.host+'/site/uuniik_project/uuniik/app/Http/Controllers/ProfileController.php'
-  'ProfileController': '{{ url('/AjaxPages/Profile') }}',
-  'PostInterface': '{{ url('/AjaxPages/PostInterface') }}',
-  'decouvrir': '{{ url('/AjaxPages/Decouvrir') }}'
+  'ProfileController': '{{ url('/Profile') }}',
+  'PostInterface': '{{ url('/PostInterface') }}',
+  'decouvrir': '{{ url('/Decouvrir') }}'
 };
 //alert(url.PostInterface);
 </script>

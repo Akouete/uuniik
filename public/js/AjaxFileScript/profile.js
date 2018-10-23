@@ -155,7 +155,7 @@ $(function() {
                 'X-CSRF-TOKEN': $('#token').val()
             },
             success: function(data) {
-              //alert(data);
+              alert(data);
               //$(self.previousElementSibling).val(data);
             },
             error: function() {
@@ -164,6 +164,22 @@ $(function() {
           });
        }, false);
      }
+});
+
+//Affichage des graphdiv et comdiv1
+
+$('#showgraphdiv').click(function() {
+  $('#comdiv').fadeOut(0);
+  $('#graphdiv').fadeIn(0);
+  $(this).css({color:'#000'});
+  $("#showcomdiv").css({color:'gray'});
+});
+
+$('#showcomdiv').click(function() {
+  $('#graphdiv').fadeOut(0);
+  $('#comdiv').fadeIn(0);
+  $(this).css({color:'#000'});
+  $("#showgraphdiv").css({color:'gray'});
 });
 
 //-----------------function des posts------------------------------
@@ -229,34 +245,6 @@ function initialize() {
   $('#fullscreen').click(function() {
     fullscreen(document.documentElement);
   });
-  //---------------------------------------
-  var lineweek = document.getElementById('lineweek')
-  var barChart = new Chart(lineweek, {
-    type: 'line',
-    data: {
-      labels:[ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24'],
-      datasets: [{
-        label: 'Soutient A la date 10/03/2018',
-        data: [5, 8, 10, 19, 25, 26, 28, 30, 34, 35, 36, 24, 22, 15, 17, 34, 35, 36, 24, 22, 15, 17, 25, 30],
-        backgroundColor: [
-        'rgba(41,98,255,0.3)'
-        ],
-        borderColor: [
-          '#2962FF'
-        ],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true
-          }
-        }]
-      }
-    }
-  })
   //----------------------------------------------------------
   var linemonth = document.getElementById('linemonth')
   var barChart = new Chart(linemonth, {

@@ -265,11 +265,11 @@
 
     <div class="contbtnques bg_white">
       <div class="long">
-        <a href="{{ url('AjaxPages/Profile') }}" class="bg_white2 text-dark mdl-button mdl-js-button radius20" id="gotoprofile" style="padding-left: 35px; font-size: 0.8em">
+        <a href="{{ url('Profile') }}" class="bg_white2 text-dark mdl-button mdl-js-button radius20" id="gotoprofile" style="padding-left: 35px; font-size: 0.8em">
           <div class="round30" style="position: absolute; left: 0; top: 4px; background: url({{ Session::get("fileDirectory").Session::get("user")->user_filename }}) center / cover;"></div>
           {{ Session::get("user")->user_name }}
         </a>
-        <!--a href="{{ url('AjaxPages/Profile') }}" class="bg_white2 text-dark mdl-button mdl-js-button radius20" id="gotoprofileavatar" style="font-size: 0.8em">
+        <!--a href="{{ url('Profile') }}" class="bg_white2 text-dark mdl-button mdl-js-button radius20" id="gotoprofileavatar" style="font-size: 0.8em">
           <i class="material-icons text-dark">accessibility</i>
           Mon Avatar
         </a-->
@@ -290,7 +290,7 @@
       @for ($j=0; $j < 10; $j++)
         <div class="col-6 col-sm-6 col-md-4 col-lg-2 contqcard">
           <div class="qcard">
-            <a href="{{ url('AjaxPages/PersonProfil?user_id='.$users[$i]->user_id) }}" id="PersonProfil">
+            <a href="{{ url('PersonProfil?user_id='.$users[$i]->user_id) }}" id="PersonProfil">
               <div class="qcardtitle center" style="background: url({{ Session::get("fileDirectory").$users[$i]->user_coverfilename }}) center / cover">
                 <div class="round50 shadow_3 bg_red1" id="pprofile" style="background: url({{ Session::get("fileDirectory").$users[$i]->user_filename }}) center / cover">
 

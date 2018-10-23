@@ -42,9 +42,77 @@
         </div>
       </div>
     </div>
+    <div class="row margin_top50">
+
+      <div class="col-lg-3 itv_card">
+        <div class="cardbloc1 border radius20" style="max-height:100%">
+          <div class="">
+            <div class="carteimg" style="border-radius: 8px; background: url(https://i.pinimg.com/564x/a9/f5/9b/a9f59bcfdd0204c3a5d3d7e36e8be330.jpg) center / cover;"></div>
+          </div>
+          <div class="row itv_cardbloc2">
+            <h2>The Uuniik effect</h2>
+            <p class="gray">2018 Uuniik festival &nbsp;&nbsp;&nbsp;<button class="bg_white2 mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">link</i></button></p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisi veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure.</p>
+            <button type="button" id="addminiature" style="border: solid 1px #fff" class="blue bg_white2 mdl-button mdl-js-button radius20 btnques" style="font-size: 0.8em"id="annuler">
+              <i class="material-icons icon_btn">explore</i> More details
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 itv_card">
+        <div class="cardbloc1 border radius20" style="max-height:100%">
+          <div class="">
+            <div class="carteimg" style="border-radius: 8px; background: url(https://cdn-images-1.medium.com/max/1600/1*molBnXXQWYO0VKHSeYIxPA.jpeg) center / cover;"></div>
+          </div>
+          <div class="row itv_cardbloc2">
+            <h2>Now we can !</h2>
+            <p class="gray">Because now we decide it &nbsp;&nbsp;&nbsp;<button class="bg_white2 mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">link</i></button></p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisi veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure.</p>
+            <button type="button" id="addminiature" style="border: solid 1px #fff" class="blue bg_white2 mdl-button mdl-js-button radius20 btnques" style="font-size: 0.8em"id="annuler">
+              <i class="material-icons icon_btn">explore</i> More details
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 itv_card">
+        <div class="cardbloc1 border radius20" style="max-height:100%">
+          <div class="">
+            <div class="carteimg" style="border-radius: 8px; background: url(http://content.asos-media.com/-/media/homepages/ww/2018/03/26/desktop---mob-web/ww-french-awareness-hero-desktop-02.jpg) center / cover;"></div>
+          </div>
+          <div class="row itv_cardbloc2">
+            <h2>This is our time</h2>
+            <p class="gray">2018 Uuniik effect in your town &nbsp;&nbsp;&nbsp;<button class="bg_white2 mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">link</i></button></p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisi veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure.</p>
+            <button type="button" id="addminiature" style="border: solid 1px #fff" class="blue bg_white2 mdl-button mdl-js-button radius20 btnques" style="font-size: 0.8em"id="annuler">
+              <i class="material-icons icon_btn">explore</i> More details
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 itv_card">
+        <div class="cardbloc1 border radius20" style="max-height:100%">
+          <div class="">
+            <div class="carteimg" style="border-radius: 8px; background: url(http://www.africafashionguide.com/wp-content/uploads/2012/01/VintageLove4-1024x520.jpg) center / cover;"></div>
+          </div>
+          <div class="row itv_cardbloc2">
+            <h2>Do your choice</h2>
+            <p class="gray">Now do it ! &nbsp;&nbsp;&nbsp;<button class="bg_white2 mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">link</i></button></p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisi veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure.</p>
+            <button type="button" id="addminiature" style="border: solid 1px #fff" class="blue bg_white2 mdl-button mdl-js-button radius20 btnques" style="font-size: 0.8em"id="annuler">
+              <i class="material-icons icon_btn">explore</i> More details
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
   </div>
 
-  <div class="container-fluid margin_top60">
+  <div class="container-fluid ">
     <div class="row">
       <div class="margin_top50 col-lg-12">
         <h1 class="red1" style="font-size: 4em">Each support touches a heart !</h1>
@@ -79,7 +147,7 @@
         </p>
       </div>
       <div class="col-lg-6" >
-        <div class="imgcontainer" style="border-radius: 20px; background: url(https://cache.20minutes.fr/photos/2015/05/28/an-indian-child-cools-off-2857-diaporama.jpg) center / cover;">
+        <div class="imgcontainer" style="border-radius: 20px; background: url(http://jonvilma.com/images/colorful-festival-holi-2.jpg) center / cover;">
 
         </div>
       </div>

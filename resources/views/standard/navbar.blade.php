@@ -97,7 +97,7 @@
 
 <a id="ancrehaut" href="#"></a>
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white" style="z-index: 5">
-    <a href="{{ url('AjaxPages/Posts') }}" id="btnposts2" class="mp6" style="border-radius: 30px;"><img class="pointer round30" id="logo" src="{{ asset('img/uuniik.png') }}" alt=""></a>
+    <a href="{{ url('/Posts') }}" id="btnposts2" class="mp6" style="border-radius: 30px;"><img class="pointer round30" id="logo" src="{{ asset('img/uuniik.png') }}" alt=""></a>
 
     <div id="continputbar">
       <i class="material-icons text-black" id="ic_search">search</i>
@@ -111,22 +111,22 @@
 
         <ul itemscope itemtype="https://www.schema.org/SiteNavigationElement" class="navbar-nav mr-auto">
             <li itemprop=" name" class="nav-item mp1" id="btnaccueil">
-                <a itemprop="url" class="nav-link" href="{{ url('AjaxPages/Posts') }}">Accueil</a>
+                <a itemprop="url" class="nav-link" href="{{ url('/Posts') }}">Accueil</a>
             </li>
             <li itemprop="name" class="nav-item mp3" id="btnpers2">
-                <a itemprop="url" class="nav-link" href="{{ url('AjaxPages/Personnes') }}">Personnes</a>
+                <a itemprop="url" class="nav-link" href="{{ url('/Personnes') }}">Personnes</a>
             </li>
             <li itemprop=" name" class="nav-item mp2" id="btndecouvrir">
-                <a itemprop="url" class="nav-link" href="{{ url('AjaxPages/Decouvrir') }}">Découvrir</a>
+                <a itemprop="url" class="nav-link" href="{{ url('/Decouvrir') }}">Découvrir</a>
             </li>
             <li class="mp4" id="btnavatar">
-                <a itemprop="url" class="" href="{{ url('AjaxPages/Profile') }}"></a>
+                <a itemprop="url" class="" href="{{ url('/Profile') }}"></a>
             </li>
             <li itemprop="name" class="bg_white nav-item mp5" id="btnprofile">
               @if (isset(Session::get("user")->user_filename))
-                <a itemprop="url" style="text-decoration: none" href="{{ url('AjaxPages/Profile') }}"><div class="round30 pointer" style="margin-top: 4px; background: url({{ Session::get("fileDirectory").Session::get("user")->user_filename }}) center / cover"></div></a>
+                <a itemprop="url" style="text-decoration: none" href="{{ url('/Profile') }}"><div class="round30 pointer" style="margin-top: 4px; background: url({{ Session::get("fileDirectory").Session::get("user")->user_filename }}) center / cover"></div></a>
               @else
-                <a itemprop="url" style="text-decoration: none" href="{{ url('AjaxPages/Profile') }}"><i class="nav-link text-dark material-icons">account_circle</i></a>
+                <a itemprop="url" style="text-decoration: none" href="{{ url('/Profile') }}"><i class="nav-link text-dark material-icons">account_circle</i></a>
               @endif
             </li>
             <li itemprop="name" class="nav-item pointer" id="demo-menu-lower-right">
@@ -134,9 +134,9 @@
             </li>
 
             <ul class="radius20 mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
-              <a class="anostyle" href="{{ url('AjaxPages/Annonceur') }}"><li class="mdl-menu__item">Annonçeur</li></a>
-              <a id="discover" class="anostyle" href="{{ url('AjaxPages/Decouvrir') }}"><li class="mdl-menu__item">Découvrir</li></a>
-              <a class="anostyle" href="{{ url('AjaxPages/cgu') }}"><li class="mdl-menu__item">CGU</li></a>
+              <a class="anostyle" href="{{ url('/Annonceur') }}"><li class="mdl-menu__item">Annonçeur</li></a>
+              <a id="discover" class="anostyle" href="{{ url('/Decouvrir') }}"><li class="mdl-menu__item">Découvrir</li></a>
+              <a class="anostyle" href="{{ url('/cgu') }}"><li class="mdl-menu__item">CGU</li></a>
               <a class="anostyle" href="#"><li class="mdl-menu__item">Déconnecter</li></a>
             </ul>
 

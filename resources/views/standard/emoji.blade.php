@@ -1,6 +1,6 @@
 <style media="screen">
   .emoji {
-  position: absolute;
+  position: relative;
   margin: auto;
   bottom: 0;
   width: 320px;

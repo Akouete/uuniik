@@ -1,6 +1,4 @@
-  //---------------------------attribution des couleurs automatiquement-------//
-  GiveColor('.audioposts');
-  //---------------------------Affichage des différents boutons de post-------//
+    //---------------------------Affichage des différents boutons de post-------//
   var btnpost = document.querySelectorAll('.btnpost');
   btnpostvisible = 0;
   document.querySelector('#newpost').addEventListener('click', function() {
@@ -46,7 +44,7 @@
     GestionCouleurMenu(4, 4, 'm');
     GestionCouleurMenu(3, 6, 'mp');
     history.pushState({key: 'value'}, 'titre', this.parentNode.href);
-    LoadPage("http://"+window.location.host+"/site/uuniik_project/uuniik/public/AjaxPages/Profile");
+    LoadPage(this.parentNode.href);
     $('html, body').scrollTop(0);
   });
   $('#b3').click(function(e) {
@@ -54,7 +52,7 @@
     $('#loader').fadeIn('fast');
     GestionCouleurMenu(1, 4, 'm');
     GestionCouleurMenu(6, 6, 'mp');
-    history.pushState({key: 'value'}, 'titre', '/site/uuniik_project/uuniik/public/AjaxPages/Decouvrir');
+    history.pushState({key: 'value'}, 'titre', '/site/uuniik_project/uuniik/public/Decouvrir');
     LoadPage(url.decouvrir);
     window.parent.document.title = "Uuniik";
   });

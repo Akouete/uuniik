@@ -3,10 +3,18 @@
 @section('content')
   <?php
     if (isset($_GET['posttype'])) {  ?>
-      <title>Uuniik | {{ ucfirst($_GET['posttype']) }}</title>
+      <title>Uuniik | {{ ucfirst($posttype) }}</title>
   <?php  } ?>
   <link rel="stylesheet" href="{{ asset('css/posts.css') }}">
   <link rel="stylesheet" href="{{ asset('css/similar.css') }}">
+
+  @php
+   //Selection du post à afficher
+   $post = DB::select('select * from uuniik_posts where post_id = ?', [$id]);
+   $user = DB::select('select * from uuniik_user where user_id = ?', [$post[0]->post_id]);
+  @endphp
+
+
   <div class="postspannel" style="margin-top: 55px">
 
     <div class="fixedcover none" id="postinterface">
@@ -24,26 +32,26 @@
 
     <div class="fixedcover none" id="annoncefixed">
       <div class="margin_auto divflex col-lg-8 annoncecont">
-        <div class="margin_auto mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active" style="color: #fff"></div>
+        <div class="margin_auto mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></div>
       </div>
     </div>
 
     <div class="profile_pannel container-fluid" style="margin-top: 65px">
         <div class="row cont">
           <?php
-            if (isset($_GET['posttype']) && strtolower($_GET['posttype']) == "image") { ?>
+            if (isset($posttype) && strtolower($posttype) == "image") { ?>
               <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 postsu">
-                <img class="imageu" src="https://i.pinimg.com/736x/f0/9a/b4/f09ab43f8c2786d66456810510238b96--holi-festival-festivals.jpg" alt="">
+                <img class="imageu" src="{{ Session::get("fileDirectory").$post[0]->post_filename }}" alt="">
               </div>
           <?php } ?>
           <?php
-            if (isset($_GET['posttype']) && strtolower($_GET['posttype']) == "video") { ?>
+            if (isset($posttype) && strtolower($posttype) == "video") { ?>
               <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 postsu">
                 <iframe style="background: rgb(20,20,20)" class="videopostu" width="854" height="480" src="https://www.youtube.com/embed/GDL7g0VA448" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
               </div>
           <?php } ?>
           <?php
-            if (isset($_GET['posttype']) && strtolower($_GET['posttype']) == "text") { ?>
+            if (isset($posttype) && strtolower($posttype) == "text") { ?>
               <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 postsu textcontu">
                 <div class="textcontu2">
                   <h4><i class="material-icons position-relative" style="top: 2px">comment</i> Title of the Text</h4>
@@ -54,7 +62,7 @@
               </div>
           <?php } ?>
           <?php
-            if (isset($_GET['posttype']) && strtolower($_GET['posttype']) == "audio") { ?>
+            if (isset($posttype) && strtolower($posttype) == "audio") { ?>
               <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 postsu audiocontu">
 
                 <div class="audioposts">
@@ -89,7 +97,7 @@
               </div>
           <?php } ?>
           <?php
-            if (isset($_GET['posttype']) && strtolower($_GET['posttype']) == "document") { ?>
+            if (isset($posttype) && strtolower($posttype) == "document") { ?>
               <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 postsu textcontu">
                 <div class="textcontu2">
                   <p>
@@ -150,7 +158,7 @@
             </div>
             <div class="row margin_top20">
               <div class="col-lg-12">
-                <h1>My wolf head</h1>
+                <h1>{{ $post[0]->post_title }}</h1>
                  Lorem ipsum dolor sit amet, . Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
                  <br><a href="#">#occaecat, #cupidatat, #non proident, #sunt, #in, #culpa, #qui, #officia, #deserunt, #mollit, #anim, #id, #est, #laborum #nappy #afro #hair #benappy #hairstyle #black #noir #paris #france #black #blackness #blackhair #nappyhair #afrohair #afrostyle #naturalhair #braids #tresses #nattes #cheveuxcrepus #afrohairtsyle #africanbeauty</a>
               </div>

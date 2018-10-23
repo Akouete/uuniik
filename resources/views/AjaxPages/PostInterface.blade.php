@@ -36,17 +36,18 @@
     <div class="row">
       <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
       <input id="titleinput" class="col-lg-12 input input1 title" style="border:0" type="text" name="" value="" placeholder="Titre">
-      <textarea data-emojiable="true" spellcheck="false" class='text-dark col-lg-12 autoExpand' rows="3" data-min-rows='3' id="principaltextarea" placeholder="Quoi d'uuniik aujourd'hui ?"></textarea>
+      <textarea class='text-dark col-lg-12 autoExpand' rows="3" data-min-rows='3' id="principaltextarea" placeholder="Quoi d'uuniik aujourd'hui ?"></textarea>
     </div>
       <input type="hidden" name="" value="" id="post_location">
       <input class="none" type="file" name="" value="" id="postfileinput">
       <input class="none" type="file" name="" value="" id="videominiature">
+      <a href="#" id="voicelink"></a>
     <div class="row center" style="margin-bottom: 10px" id="previsualisation">
       <img class="none imgpreview img-responsive" src="" alt="">
 
       <!---------- Video ---------------->
       <div class="none Videopreview">
-        <button type="button" id="addminiature" style="border: solid 1px #fff" class="blue bg_white2 mdl-button mdl-js-button radius20 btnques" style="font-size: 0.8em"id="annuler">
+        <button type="button" id="addminiature" style="border: solid 1px #fff" class="blue bg_white2 mdl-button mdl-js-button radius20 btnques" style="font-size: 0.8em"id="">
           <i class="material-icons icon_btn">image</i>Add Miniature
         </button>
         <video id="Videopreview" class="margin_top10 col-lg-12" controls>
@@ -97,10 +98,10 @@
       </div>
     </div>
     <div class="row center none margin_top10" id="linksrow">
-      <button type="button" id="normallink" style="border: solid 1px #fff" class="blue bg_white2 mdl-button mdl-js-button radius20 btnques" style="font-size: 0.8em"id="annuler">
+      <button type="button" id="normallink" style="border: solid 1px #fff" class="blue bg_white2 mdl-button mdl-js-button radius20 btnques" style="font-size: 0.8em"id="">
         <i class="material-icons icon_btn">link</i> Normal link
       </button>
-      <button type="button" style="border: solid 1px #fff; color: #C62828" id="youtubeiframelink" class="bg_white2 mdl-button mdl-js-button radius20 btnques" style="font-size: 0.8em"id="annuler">
+      <button type="button" style="border: solid 1px #fff; color: #C62828" id="youtubeiframelink" class="bg_white2 mdl-button mdl-js-button radius20 btnques" style="font-size: 0.8em"id="">
         <i class="material-icons icon_btn">play_arrow</i>Youtube video code
       </button>
     </div>
@@ -162,7 +163,8 @@ $('#publier').click(function(e) {
    var xhr = new XMLHttpRequest();
    xhr.onreadystatechange = function() {
     if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
-      //alert(xhr.responseText);
+      $('.fixedcover').fadeOut('slow');
+      document.body.style.overflow = "auto";
     }
    };
    xhr.open('POST', postform.action);
@@ -177,6 +179,7 @@ $('#publier').click(function(e) {
    form.append('post_embededlink', $('#embededlinkinput').val());
    form.append('post_location', $('#post_location').val());
    form.append('token', $('#token').val());
+   form.append('voicelink', document.querySelector('#voicelink').href);
 
    form.append('post_file', postfileinput.files[0]);
    form.append('post_videominiature', videominiature.files[0]);
@@ -200,7 +203,7 @@ $('#publier').click(function(e) {
     var imageExt = ['png', 'PNG', 'jpeg', 'jpg','JPG', 'JPEG', 'jpeg', 'gif', 'GIF', 'BITMAP', 'bitmap'];
     var audioExt = ['mp3', 'MP3', 'OGG', 'ogg','WAV', 'wav', 'rsf', 'RSF', 'aac', 'AAC', 'm4a', 'M4A'];
     var docExt = ['txt', 'pdf', 'doc', 'docx', 'xls','xlsx', 'csv', 'CSV', 'ppt', 'pptx', 'odt'];
-    var allowedTypes = ['txt', 'pdf', 'doc', 'docx', 'xls','xlsx', 'csv', 'CSV', 'ppt', 'pptx',   'mp3', 'MP3', 'OGG', 'ogg','WAV', 'wav', 'rsf', 'RSF', 'aac', 'AAC', 'm4a', 'M4A',             'png', 'PNG', 'jpeg', 'jpg','JPG', 'JPEG', 'jpeg', 'gif', 'GIF', 'BITMAP', 'bitmap',                 'avi', 'AVI', 'MOV', 'WMV', 'mkv', 'MKV', 'mp4', 'MP4', 'mpeg4', '3GP', '3gp', 'M4V', 'm4v', 'ogg' ];
+    var allowedTypes = ['txt', 'pdf', 'doc', 'docx', 'xls','xlsx', 'csv', 'CSV', 'ppt', 'pptx',   'mp3', 'MP3', 'OGG', 'ogg','WAV', 'wav', 'rsf', 'RSF', 'aac', 'AAC', 'm4a', 'M4A',  'png', 'PNG', 'jpeg', 'jpg','JPG', 'JPEG', 'jpeg', 'gif', 'GIF', 'BITMAP', 'bitmap',  'avi', 'AVI', 'MOV', 'WMV', 'mkv', 'MKV', 'mp4', 'MP4', 'mpeg4', '3GP', '3gp', 'M4V', 'm4v', 'ogg' ];
     var fileInput = document.querySelector(inputid), conteneur = document.querySelector(divid);
     fileInput.onchange = function() {
       var files = this.files, filesLen = files.length, fileExt, fileType;
@@ -481,14 +484,8 @@ function RecordVoice(startbtn, stopbtn, playbtn) {
 
              document.querySelector('.audiopreview').style.display = "block";
              document.querySelector('#PreviewAudioPlayer').parentNode.src = url;
+             document.querySelector('#voicelink').href = url;
 
-             $('<input/>', {
-                id: 'test',
-                type: 'File',
-                value: url
-            }​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​).appendTo('#postform');​​​​​​​​
-
-             //alert(url);
 
          });
          $('#cancelrecord').click(function() {

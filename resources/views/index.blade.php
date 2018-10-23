@@ -31,7 +31,47 @@ Session::put("fileDirectory", $fileDirectory);
 
     @yield('content')
 
-    <div class="fixedcover none alertsystem">
+    <!-- -------------------------- -------------------  Div des commentaires -->
+    <div class="fixedcover none">
+      <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4 radius20 border bg_white margin_top50">
+          <div class="divflex row height50 mdl-color--blue-Grey text-white radius_top15">
+            <h5 class="margin_auto">Envoyer des commentaires</h5>
+          </div>
+          <div class="row">
+            <textarea class='text-dark col-lg-12 autoExpand' rows="3" data-min-rows='3' id="commenttextarea" placeholder="Avertissez nous de vos remarques ... "></textarea>
+          </div>
+          <div class="row">
+            <div class="container">
+              <p style="font-size:0.7em">Accédez à la page d'<a href="#">assistance juridique</a> afin de demander des modifications de contenu pour des motifs d'ordre juridique. Vos commentaires et des <a href="#">informations</a> supplémentaires seront envoyés à Google. Consultez les <a href="#">Règles de confidentialité et les Conditions d'utilisation</a>.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="container">
+              <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
+                <input type="checkbox" id="switch-1" class="mdl-switch__input" checked>
+                <span class="mdl-switch__label">Cette remarque est urgente</span>
+              </label>
+              <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-2">
+                <input type="checkbox" id="switch-2" class="mdl-switch__input">
+                <span class="mdl-switch__label">Cette remarque n'est pas urgente</span>
+              </label>
+            </div>
+          </div>
+          <div class="row cmbottom">
+            <button type="button" class="mdl-button mdl-js-button mdl-js-ripple-effect radius20" id="annuler">
+              Annuler
+            </button>
+            <button type="button" class="text-primary mdl-button mdl-js-button mdl-js-ripple-effect radius20" id="annuler">
+              Envoyer
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fixedcover alertsystem none">
       <div class="col-lg-4 col-sm-6 border margin_auto bg-white radius20 text-left" style="padding-top: 10px; padding-bottom: 10px">
         <h3 id="asTitle">Mise à jour réussi !</h3>
         <p id="asContent">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod </p>
@@ -42,7 +82,7 @@ Session::put("fileDirectory", $fileDirectory);
             </button>
           </div>
           <div class="col-6 text-right" style="justify-content: right">
-            <button class="text-danger bg_white2 mdl-button mdl-js-button radius20" id="annuler">
+            <button class="text-danger mdl-button mdl-js-button radius20" id="annuler">
               Non
             </button>
             <button class="text-success bg_white2 mdl-button mdl-js-button radius20">
@@ -53,7 +93,7 @@ Session::put("fileDirectory", $fileDirectory);
       </div>
     </div>
 
-    <div class="center width100 position-relative margin_top200" style="margin-bottom:60px; background: none" id="spinner2">
+    <div class="center width100 position-relative margin_top200" style="margin-bottom:80px; background: none" id="spinner2">
       <div class="mdl-spinner mdl-js-spinner is-active"></div>
     </div>
 
@@ -76,7 +116,7 @@ Session::put("fileDirectory", $fileDirectory);
             <i class="material-icons" style="color: #f4c20d">refresh</i>
           </button>
         </a>
-        <a href="{{ url('AjaxPages/Personnes') }}">
+        <a href="{{ url('/Personnes') }}">
           <button id="btnpers" class="m4 border0 width25 mdl-button mdl-js-button mdl-js-ripple-effect">
             <i class="material-icons " style="color: #4885ed">account_circle</i>
           </button>

@@ -15,7 +15,7 @@ $('#btnposts').click(function(e) {
   GestionCouleurMenu(1, 4, 'm');
   GestionCouleurMenu(1, 6, 'mp');
   history.pushState({key: 'value'}, 'titre', '/site/uuniik_project/uuniik/public/index');
-  LoadPage("http://"+window.location.host+"/site/uuniik_project/uuniik/public/AjaxPages/Posts");
+  LoadPage("http://"+window.location.host+"/site/uuniik_project/uuniik/public/Posts");
   window.parent.document.title = "Uuniik";
 });
 $('#btnposts2, #btnaccueil').click(function(e) {
@@ -24,7 +24,7 @@ $('#btnposts2, #btnaccueil').click(function(e) {
   GestionCouleurMenu(1, 4, 'm');
   GestionCouleurMenu(6, 6, 'mp');
   history.pushState({key: 'value'}, 'titre', '/site/uuniik_project/uuniik/public/index');
-  LoadPage("http://"+window.location.host+"/site/uuniik_project/uuniik/public/AjaxPages/Posts");
+  LoadPage("http://"+window.location.host+"/site/uuniik_project/uuniik/public/Posts");
   window.parent.document.title = "Uuniik";
 });
 //---------------------------------------------------
@@ -40,7 +40,7 @@ $('#btndecouvrir').click(function(e) {
   GestionCouleurMenu(3, 4, 'm');
   GestionCouleurMenu(2, 6, 'mp');
   history.pushState({key: 'value'}, 'titre', this.firstElementChild.href);
-  LoadPage("http://"+window.location.host+"/site/uuniik_project/uuniik/public/AjaxPages/Decouvrir");
+  LoadPage("http://"+window.location.host+"/site/uuniik_project/uuniik/public/Decouvrir");
   window.parent.document.title = "Uuniik | Découvrir";
   //$('html, body').scrollTop(0);
 });
@@ -51,7 +51,7 @@ $('#btnpers').click(function(e) {
   GestionCouleurMenu(4, 4, 'm');
   GestionCouleurMenu(3, 6, 'mp');
   history.pushState({key: 'value'}, 'titre', this.parentNode.href);
-  LoadPage("http://"+window.location.host+"/site/uuniik_project/uuniik/public/AjaxPages/Personnes");
+  LoadPage("http://"+window.location.host+"/site/uuniik_project/uuniik/public/Personnes");
   window.parent.document.title = "Uuniik | Personnes";
   //$('html, body').scrollTop(0);
 });
@@ -61,7 +61,7 @@ $('#btnpers2').click(function(e) {
   GestionCouleurMenu(4, 4, 'm');
   GestionCouleurMenu(3, 6, 'mp');
   history.pushState({key: 'value'}, 'titre', this.firstElementChild.href);
-  LoadPage("http://"+window.location.host+"/site/uuniik_project/uuniik/public/AjaxPages/Personnes");
+  LoadPage("http://"+window.location.host+"/site/uuniik_project/uuniik/public/Personnes");
   window.parent.document.title = "Uuniik | Personnes";
   //$('html, body').scrollTop(0);
 });
@@ -72,7 +72,7 @@ $('#btnavatar, #btnprofile').click(function(e) {
   GestionCouleurMenu(4, 4, 'm');
   GestionCouleurMenu(5, 6, 'mp');
   history.pushState({key: 'value'}, 'titre', this.firstElementChild.href);
-  LoadPage("http://"+window.location.host+"/site/uuniik_project/uuniik/public/AjaxPages/Profile");
+  LoadPage("http://"+window.location.host+"/site/uuniik_project/uuniik/public/Profile");
   window.parent.document.title = "Uuniik | Profile";
   //$('html, body').scrollTop(0);
 });

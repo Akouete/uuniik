@@ -1,3 +1,17 @@
+#commenttextarea {
+  margin-top: 6px;
+  border: 0;
+  font-size: 1em;
+  font-weight: bold;
+  resize: none;
+  max-height: 500px;
+  box-sizing: padding-box;
+}
+.cmbottom {
+  border-top:  solid 1px rgb(230,230,230);
+  justify-content: right;
+  padding: 5px;
+}
 .phone_menu {
   position: fixed;
   bottom: 0;

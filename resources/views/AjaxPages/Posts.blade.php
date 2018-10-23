@@ -19,19 +19,68 @@
 
             <div class="row cont margin_bottom50">
 
-              <?php
-                for ($i=0; $i < 10 ; $i++) { ?>
+              @php
+               //Selection des posts à afficher
+               $posts = DB::select('select * from uuniik_posts');
+              @endphp
 
-                  @php
-                    GenerateAudioPost();
-                    GenerateVideoPost();
-                    GenerateDocumentPost();
-                    GenerateImagePost();
-                    GenerateTextPost();
-                  @endphp
+             @for ($i=0; $i < sizeof($posts); $i++)
+               @php
+               //Selection des donnée du publicateur du post
+                 $user = DB::select('select * from uuniik_user where user_id = ?', [$posts[$i]->post_userid]);
+
+                 $userprofile = Session::get("fileDirectory").Session::get("user")->user_filename;
+                 $username = Session::get("user")->user_name;
+                 $user_id = Session::get("user")->user_id;
+                 $date = $posts[$i]->created_at;
+                 $posttitle = $posts[$i]->post_title;
+                 $postcontent = $posts[$i]->post_content;
+                 $location = $posts[$i]->post_location;
+                 $userprofilelink = url('/PersonProfil/'.$posts[$i]->post_userid);
+
+               @endphp
+               @php
+               if ($posts[$i]->post_type == "audio") {
+                 $audiolink = Session::get("fileDirectory").$posts[$i]->post_filename;
+                 $postlink = url("/Similar/audio/".$posts[$i]->post_id);
+                 GenerateAudioPost($audiolink, $userprofile, $posttitle, $postcontent, $userprofilelink, $postlink);
+               }
+               if ($posts[$i]->post_type == "doc") {
+                 $postlink = url("/Similar/document/".$posts[$i]->post_id);
+                 GenerateDocumentPost($userprofile, $username, $date, $location, $posttitle, $postcontent, $userprofilelink, $postlink);
+               }
+               if ($posts[$i]->post_type == "img") {
+                 $imglink = Session::get("fileDirectory").$posts[$i]->post_filename;
+                 $postlink = url("/Similar/image/".$posts[$i]->post_id);
+                 GenerateImagePost($imglink, $userprofile, $username, $date, $location, $userprofilelink, $postlink);
+               }
+               if ($posts[$i]->post_type == "text") {
+                 $postlink = url("/Similar/text/".$posts[$i]->post_id);
+                 GenerateTextPost($userprofile, $username, $date, $location, $posttitle, $postcontent, $userprofilelink, $postlink);
+               }
+               if ($posts[$i]->post_type == "video") {
+                 $postlink = url("/Similar/video/".$posts[$i]->post_id);
+                 $miniaturelink = Session::get("fileDirectory").$posts[$i]->post_videominiature;
+                 GenerateVideoPost($miniaturelink, $userprofile, $username, $date, $location, $userprofilelink, $postlink);
+               }
+               @endphp
+             @endfor
 
 
-              <?php  } ?>
+                  @for ($i=0; $i < 10 ; $i++)
+                    @php
+                    //  GenerateAudioPost();
+                      //GenerateVideoPost();
+                      //GenerateDocumentPost();
+                      //GenerateImagePost();
+                      //GenerateTextPost();
+                    @endphp
+                  @endfor
+
+
+
+
+
             </div>
 
             <div id="contbtnedit">

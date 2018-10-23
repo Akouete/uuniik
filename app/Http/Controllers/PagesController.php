@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Cookie;
 use Illuminate\Support\Facades\Session;
-
-
+use App\CompteVente;
+use App\nbvisite;
 
 class PagesController extends Controller
 {
@@ -117,19 +117,19 @@ class PagesController extends Controller
       ]);
     }
 
-    public function PersonProfil() {
+    public function PersonProfil($user_id) {
       $way = new WayController();
       $way->SetUrl();
       return view('AjaxPages/PersonProfil', ['LOGOURL' => $way->url['LOGOURL'],
-        'MANIFESTJSONURL' => $way->url['MANIFESTJSONURL']
+        'MANIFESTJSONURL' => $way->url['MANIFESTJSONURL'], 'user_id' => $user_id
       ]);
     }
 
-    public function similar() {
+    public function similar($posttype, $id) {
       $way = new WayController();
       $way->SetUrl();
       return view('AjaxPages/Similar', ['LOGOURL' => $way->url['LOGOURL'],
-        'MANIFESTJSONURL' => $way->url['MANIFESTJSONURL']
+        'MANIFESTJSONURL' => $way->url['MANIFESTJSONURL'],'posttype' => $posttype, 'id' => $id
       ]);
     }
 
@@ -165,6 +165,60 @@ class PagesController extends Controller
       return view('AjaxPages/PostInterface', ['LOGOURL' => $way->url['LOGOURL'],
         'MANIFESTJSONURL' => $way->url['MANIFESTJSONURL']
       ]);
+    }
+
+    public function payment() {
+        $way = new WayController();
+        $way->SetUrl();
+        Session::put("price", $_POST['price']);
+        Session::put("product", $_POST['product']);
+
+        return view('payment', ['LOGOURL' => $way->url['LOGOURL'],
+          'MANIFESTJSONURL' => $way->url['MANIFESTJSONURL']
+        ]);
+
+    }
+
+    public function bigconnerie() {
+        $way = new WayController();
+        $way->SetUrl();
+        $inc;
+
+        $comptevente = new CompteVente();
+
+        $product = CompteVente::where('vente_type', '=', Session::get("product"));
+
+        //$product = DB::select('select * from user_vente where vente_type = ?', [ Session::get("product"));
+
+        if(isset($product[0]->vente_id)) {
+          $inc = $product[0]->vente_id + 1;
+          $product->update(["vente_nb" =>  $inc]);
+        }
+
+        return view('titrepdf', ['LOGOURL' => $way->url['LOGOURL'],
+          'MANIFESTJSONURL' => $way->url['MANIFESTJSONURL']
+        ]);
+    }
+
+    public function titrepdf() {
+        $way = new WayController();
+        $way->SetUrl();
+        $inc;
+
+        $comptevente = new CompteVente();
+
+        $product = CompteVente::where('vente_type', '=', Session::get("product"));
+
+        //$product = DB::select('select * from user_vente where vente_type = ?', [ Session::get("product"));
+
+        if(isset($product[0]->vente_id)) {
+          $inc = $product[0]->vente_id + 1;
+          $product->update(["vente_nb" =>  $inc]);
+        }
+
+        return view('titrepdf', ['LOGOURL' => $way->url['LOGOURL'],
+          'MANIFESTJSONURL' => $way->url['MANIFESTJSONURL']
+        ]);
     }
 
     /**

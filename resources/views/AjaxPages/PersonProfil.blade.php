@@ -2,8 +2,8 @@
 @include('PostsComponent')
 @section('content')
   @php
-    if (isset($_GET['user_id'])) {
-      $user = DB::select('select * from uuniik_user where user_id = ?', [ $_GET['user_id']]);
+    if (isset($user_id)) {
+      $user = DB::select('select * from uuniik_user where user_id = ?', [ $user_id ]);
     }else {
 
     }
@@ -155,7 +155,7 @@
                 GenerateAudioPost();
                 GenerateVideoPost();
                 GenerateDocumentPost();
-                GenerateImagePost();
+              //  GenerateImagePost();
                 GenerateTextPost();
               @endphp
 

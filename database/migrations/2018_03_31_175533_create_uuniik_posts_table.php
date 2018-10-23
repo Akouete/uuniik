@@ -18,11 +18,12 @@ class CreateUuniikPostsTable extends Migration
           $table->string('post_type')->nullable();
           $table->string('post_userid');
           $table->string('post_title')->nullable();
-          $table->string('post_content')->nullable();
+          $table->string('post_content', 2000)->nullable();
           $table->string('post_link')->nullable();
           $table->string('post_embededlink')->nullable();
           $table->string('post_filename')->nullable();
           $table->string('post_location')->nullable();
+          $table->string('post_videominiature')->nullable();
           $table->timestamps();
         });
     }

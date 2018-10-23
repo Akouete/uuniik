@@ -1,0 +1,51 @@
+#shopping {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+}
+#logo {
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+  .back {
+    position: absolute;
+    top: 0;
+    height: 200px;
+    width: 100%;
+    left: 0;
+    /*background: #FF9800;*/
+    background: url("http://findmotivationtoday.com/wp-content/uploads/2016/03/girl-looking-at-the-sun-background.jpg") center/cover;
+  }
+  .filtre {
+    position: absolute;
+    top: 0;
+    height: 200px;
+    width: 100%;
+    left: 0;
+    opacity: 0.3;
+    z-index: 1;
+  }
+  .concept {
+    z-index: 2;
+    text-shadow: 0 2px 4px rgb(0,0,0)
+  }
+  .carte {
+    margin-top: 50px;
+    padding-bottom: 10px;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: all 0.2s;
+  }
+  .bottom {
+    border-top: solid 1px rgb(240,240,240);
+  }
+  .bottom button {
+    margin-top: 10px;
+  }
+  #asktext {
+    border: none;
+    padding: 10px;
+  }

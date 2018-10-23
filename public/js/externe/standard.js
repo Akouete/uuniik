@@ -57,6 +57,7 @@ function ShowDiv(btn,div,method) {
   //------------------------gestion de l'ausizing des textarea-------------------//
 
   // Applied globally on all textareas with the "autoExpand" class
+
   $(document)
       .one('focus.autoExpand', 'textarea.autoExpand', function(){
           var savedValue = this.value;
@@ -70,6 +71,25 @@ function ShowDiv(btn,div,method) {
           rows = Math.ceil((this.scrollHeight - this.baseScrollHeight) / 26);
           this.rows = minRows + rows;
       });
+
+      function AutoExpand() {
+          $(document)
+            .one('focus.autoExpand2', 'textarea.autoExpand2', function(){
+                var savedValue = this.value;
+                this.value = '';
+                this.baseScrollHeight = this.scrollHeight;
+                this.value = savedValue;
+            })
+            .on('input.autoExpand2', 'textarea.autoExpand2', function(){
+                var minRows = this.getAttribute('data-min-rows')|0, rows;
+                this.style.height = minRows+'em';
+                rows = Math.ceil((this.scrollHeight - this.baseScrollHeight) / 10);
+                this.style.height = (minRows + rows)+'em';
+            });
+      }
+
+
+
 
       function getOpositeColor(rgb) { // Like this : rgb(0, 0, 0);
           while (rgb.indexOf(' ') != -1) rgb = rgb.replace(' ', '');
@@ -92,8 +112,8 @@ function ShowDiv(btn,div,method) {
         var divclasses = document.querySelectorAll(divclass);
         for (var i = 0; i < divclasses.length; i++) {
           var background = '#' + Math.floor(Math.random() * 0xFFFFFF).toString(16);
-          divclasses[i].style.background = background;
-          divclasses[i].style.color = getOpositeColor(divclasses[i].style.background);
+          divclasses[i].style.backgroundColor = background;
+          divclasses[i].style.color = getOpositeColor(divclasses[i].style.backgroundColor);
           //$(divclasses[i]).find('a').css('color', getOpositeColor(divclasses[i].style.background))
         }
       }
@@ -111,7 +131,7 @@ function ShowDiv(btn,div,method) {
 
           },
           error: function() {
-            //LoadPage(PageUrl)
+            LoadPage(PageUrl);
           }
         });
 
@@ -220,6 +240,28 @@ function ShowDiv(btn,div,method) {
           }
 
         });
+
+        //---------------------------attribution des couleurs automatiquement-------//
+        GiveColor('.audioposts');
+        GiveColor('.profileaudio');
+
+        var postdesc = document.querySelectorAll('.postdesc'), plus = document.querySelectorAll('#plus');
+        var savepostdesc = [], j = 0;
+
+        for (var i = 0; i < postdesc.length; i++) {
+          savepostdesc[i] = postdesc[i].innerText;
+          postdesc[i].innerText = postdesc[i].innerText.substr(0, 50);
+        }
+
+        for (var i = 0; i < plus.length; i++) {
+          plus[i].addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            this.parentNode.firstElementChild.innerText = savepostdesc[i];
+            this.innerText = "Moins";
+          }, false);
+        }
+
       }
 
 //------------------------------ Minuteur ------------------------------------//

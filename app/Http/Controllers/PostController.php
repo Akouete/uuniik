@@ -40,8 +40,15 @@ class PostController extends Controller
         'post_embededlink' => 'required|alpha_dash'
       ]);
 
+      // Si on a un code d'integration youtube ou daily motion
+      if (Input::get('post_embededlink') != null) {
+        $posttype = "video";
+      }else {
+        $posttype = "text";
+      }
+
       $post = $postmodel::create([
-        'post_type' => Input::get('post_type'),
+        'post_type' => $posttype,
         'post_userid' => Session::get("user")->user_id,
         'post_title' => Input::get('post_title'),
         'post_content' => Input::get('post_content'),
@@ -53,14 +60,51 @@ class PostController extends Controller
       $post_file = $request->file('post_file');
       $post_videominiature = $request->file('post_videominiature');
 
+      $videoExt = ['avi', 'AVI', 'MOV', 'WMV', 'mkv', 'MKV', 'mp4', 'MP4', 'mpeg4', '3GP', '3gp', 'M4V', 'm4v', 'ogg' ];
+      $imageExt = ['png', 'PNG', 'jpeg', 'jpg','JPG', 'JPEG', 'jpeg', 'gif', 'GIF', 'BITMAP', 'bitmap'];
+      $audioExt = ['mp3', 'MP3', 'OGG', 'ogg','WAV', 'wav', 'rsf', 'RSF', 'aac', 'AAC', 'm4a', 'M4A'];
+      $docExt = ['txt', 'pdf', 'doc', 'docx', 'xls','xlsx', 'csv', 'CSV', 'ppt', 'pptx', 'odt'];
 
       if(isset($post_file)) {
         $ext = $post_file->getClientOriginalExtension();
         $mime = $post_file->getMimeType();
         $newname = $mime.'__'.$post['id'].'__'.md5(uniqid(rand(), true)).'.'.$ext;
+        if (in_array($ext, $videoExt)) {
+          $posttype = "video";
+        }
+        if (in_array($ext, $imageExt)) {
+          $posttype = "img";
+        }
+        if (in_array($ext, $audioExt)) {
+          $posttype = "audio";
+        }
+        if (in_array($ext, $docExt)) {
+          $posttype = "doc";
+        }
         Storage::disk('local')->put($newname, File::get($post_file));
+        $uerinfo = PostModel::where('post_id', '=', $post['id']);
+        $uerinfo->update(["post_filename" =>  $newname, "post_type" => $posttype]);
+      }
+      if(isset($post_videominiature)) {
+        $ext = $post_videominiature->getClientOriginalExtension();
+        $mime = $post_videominiature->getMimeType();
+        $newname = $mime.'__'.$post['id'].'__'.md5(uniqid(rand(), true)).'.'.$ext;
+        Storage::disk('local')->put($newname, File::get($post_videominiature));
         $fileinfo = PostModel::where('post_id', '=', $post['id']);
-        $fileinfo->update(["post_filename" =>  $newname]);
+        $fileinfo->update(["post_videominiature" =>  $newname]);
+      }
+      if(isset($_POST['voicelink']) && !empty($_POST['voicelink'])) {
+        $newfilename = md5(uniqid(rand(), true));
+        $url = Input::get('voicelink');
+        echo $url;
+        $fichier = storage_path('app/audio/'.$newfilename.'.m4a');
+        $ch = curl_init($url);
+        $fp = fopen($fichier, 'wb');
+        curl_setopt($ch, CURLOPT_FILE, $fp);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_exec($ch);
+        curl_close($ch);
+        fclose($fp);
       }
 
 

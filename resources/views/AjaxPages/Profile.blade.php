@@ -172,61 +172,135 @@
             <li class="mdl-menu__item" id="fullscreen"><i class="material-icons gray icon_list">zoom_out_map</i>&nbsp; Plein écran</li>
           </ul>
           <div class="center margin_top10">
-            <button style="border: solid 1px #fff;" class="bg_white2 mdl-button mdl-js-button radius20 btnques" id="annuler">
+            <button style="border: solid 1px #fff;" class="bg_white2 mdl-button mdl-js-button radius20 btnques" id="showgraphdiv">
               <i class="material-icons icon_btn">trending_up</i> Monetisation
             </button>
-            <button style="border: solid 1px #fff;" class="gray bg_white2 mdl-button mdl-js-button radius20 btnques" id="annuler">
+            <button style="border: solid 1px #fff;" class="gray bg_white2 mdl-button mdl-js-button radius20 btnques" id="showcomdiv">
               <i class="material-icons icon_btn">comment</i> Mes commentaires
             </button>
-            <button style="border: solid 1px #fff;" class="gray bg_white2 mdl-button mdl-js-button radius20 btnques" id="annuler">
-              <i class="material-icons icon_btn">view_column</i> Mes posts
-            </button>
+            <a href="#mesposts">
+              <button style="border: solid 1px #fff;" class="gray bg_white2 mdl-button mdl-js-button radius20 btnques" id="annuler">
+                <i class="material-icons icon_btn">view_column</i> Mes posts
+              </button>
+            </a>
           </div>
-          <div class="center margin_top10">
-            <span class="mdl-chip mdl-chip--contact">
-              <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">R</span>
-              <span class="mdl-chip__text">Graph Real Time</span>
-            </span>
-            <span class="mdl-chip mdl-chip--contact">
-              <span class="mdl-chip__contact mdl-color--blue mdl-color-text--white">D</span>
-              <span class="mdl-chip__text">Graph By Day</span>
-            </span>
-            <span class="mdl-chip mdl-chip--contact">
-              <span class="mdl-chip__contact mdl-color--pink mdl-color-text--white">W</span>
-              <span class="mdl-chip__text">Graph By Week</span>
-            </span>
-            <span class="mdl-chip mdl-chip--contact">
-              <span class="mdl-chip__contact mdl-color--purple mdl-color-text--white">M</span>
-              <span class="mdl-chip__text">Graph By Month</span>
-            </span>
-            <span class="mdl-chip mdl-chip--contact">
-              <span class="mdl-chip__contact mdl-color--red mdl-color-text--white">Y</span>
-              <span class="mdl-chip__text">Graph By Year</span>
-            </span>
+          <div class="" id="graphdiv">
+            <div class="center margin_top10">
+              <span class="mdl-chip mdl-chip--contact">
+                <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">R</span>
+                <span class="mdl-chip__text">Graph Real Time</span>
+              </span>
+              <span class="mdl-chip mdl-chip--contact">
+                <span class="mdl-chip__contact mdl-color--blue mdl-color-text--white">D</span>
+                <span class="mdl-chip__text">Graph By Day</span>
+              </span>
+              <span class="mdl-chip mdl-chip--contact">
+                <span class="mdl-chip__contact mdl-color--pink mdl-color-text--white">W</span>
+                <span class="mdl-chip__text">Graph By Week</span>
+              </span>
+              <span class="mdl-chip mdl-chip--contact">
+                <span class="mdl-chip__contact mdl-color--purple mdl-color-text--white">M</span>
+                <span class="mdl-chip__text">Graph By Month</span>
+              </span>
+              <span class="mdl-chip mdl-chip--contact">
+                <span class="mdl-chip__contact mdl-color--red mdl-color-text--white">Y</span>
+                <span class="mdl-chip__text">Graph By Year</span>
+              </span>
+            </div>
+            <div class="row margin_top20">
+              <div class="col-lg-12">
+            		<canvas class="row" id="linereal"></canvas>
+            	</div>
+              <div class="col-lg-12">
+                <canvas class="row" id="linemonth"></canvas>
+              </div>
+            </div>
           </div>
-          <div class="row margin_top20">
-            <div class="col-lg-12">
-          		<canvas class="row" id="linereal"></canvas>
-          	</div>
-            <div class="col-lg-12">
-              <canvas class="row" id="lineweek"></canvas>
-            </div>
-            <div class="col-lg-12">
-              <canvas class="row" id="linemonth"></canvas>
-            </div>
+          <div class="none" id="comdiv">
+            @for ($i=0; $i < 2; $i++)
+              <div class="row black1">
+                <div class="col-12" style="text-align: right">
+                  <button class="mdl-button mdl-js-button mdl-button--icon btncomoption" id="btnm<?=$i?>">
+                    <i class="material-icons icondark">more_vert</i>
+                  </button>
+                  <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"  data-mdl-for="btnm<?=$i?>">
+                    <li class="mdl-menu__item"><i class="material-icons gray icon_list">delete</i>&nbsp; Supprimer</li>
+                  </ul>
+                </div>
+
+                <div class="col-2 center" style="justify-content: right">
+                  <i class="material-icons gray margin_auto" style="font-size: 3.5em">account_circle</i>
+                </div>
+                <div class="col-10">
+                  <h5>AKOUETE Ekoué</h5>
+                  <p class="black1">Lorem ipsum lorem non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore caecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                  <p class="gray" style="font-size: 0.7em">
+                    14 mars &nbsp;&nbsp;
+                    <button class="bg_white2 radius20 mdl-button mdl-js-button mdl-js-ripple-effect" style="font-size: 0.8em"id="annuler">
+                      Modifier
+                    </button>&nbsp;&nbsp;
+                    <button class="mdl-button mdl-js-button mdl-button--icon">
+                      <i class="material-icons" style="font-size: 0.9em">thumb_up</i>
+                    </button>33K &nbsp;&nbsp;
+                    <button class="mdl-button mdl-js-button mdl-button--icon">
+                      <i class="material-icons" style="font-size: 0.9em">thumb_down</i>
+                    </button>447
+                    </p>
+                    <p class="black">Afficher les réponses <button class="mdl-button mdl-js-button mdl-button--icon"><i class="black material-icons">keyboard_arrow_down</i></button></p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8">
+                  <?php
+                  for ($j=0; $j < 2; $j++) { ?>
+                    <div class="row black1">
+                      <div class="col-12" style="text-align: right">
+                        <button class="mdl-button mdl-js-button mdl-button--icon btncomoption" id="btnm<?=$j?>">
+                          <i class="material-icons icondark">more_vert</i>
+                        </button>
+                        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"  data-mdl-for="btnm<?=$j?>">
+                          <li class="mdl-menu__item"><i class="material-icons gray icon_list">notifications</i>&nbsp; Signaler</li>
+                        </ul>
+                      </div>
+
+                      <div class="col-2 center" style="justify-content: right">
+                        <i class="material-icons gray margin_auto" style="font-size: 2.5em">account_circle</i>
+                      </div>
+                      <div class="col-10">
+                        <h5>Malia Sasha</h5>
+                        <p class="black1">Lorem ipsum lorem non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p class="gray" style="font-size: 0.7em">
+                          02 Avril &nbsp;&nbsp;
+                          <button class="mdl-button mdl-js-button mdl-button--icon">
+                            <i class="material-icons" style="font-size: 0.9em">thumb_up</i>
+                          </button>33K &nbsp;&nbsp;
+                          <button class="mdl-button mdl-js-button mdl-button--icon">
+                            <i class="material-icons" style="font-size: 0.9em">thumb_down</i>
+                          </button>447
+                          </p>
+                      </div>
+                    </div>
+                  <?php }
+                  ?>
+                </div>
+              </div>
+
+            @endfor
           </div>
         </div>
       </div>
-      <div class="row margin_top10 cont">
+      <div class="row margin_top50 cont" id="mesposts">
         <?php
           for ($i=0; $i < 2 ; $i++) { ?>
 
             @php
-              GenerateAudioPost();
+              /*GenerateAudioPost();
               GenerateVideoPost();
               GenerateDocumentPost();
               GenerateImagePost();
-              GenerateTextPost();
+              GenerateTextPost();*/
             @endphp
 
         <?php  } ?>
